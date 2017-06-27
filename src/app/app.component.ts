@@ -13,6 +13,7 @@ export class AppComponent  {
     
     constructor(private mapService: MapService) { }
     
+    
     ngOnInit(): void {
       this.mapService.getMap(64)
         .then(data => {
