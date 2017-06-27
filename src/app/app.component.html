@@ -1,0 +1,8 @@
+<h1>Hello {{name}}</h1>
+<div *ngIf="map">
+geladen
+<ul>
+    <li *ngFor="let feature of map.features; let i = index">{{i+1}}: {{feature.properties.title}}</li>
+</ul>
+</div>
+<div id="map" class="mapboxgl-map"></div>
