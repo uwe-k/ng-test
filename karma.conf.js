@@ -32,6 +32,7 @@ module.exports = function(config) {
     },
 
     files: [
+      'node_modules/mapbox-gl/dist/mapbox-gl.js',
       // System.js for module loading
       'node_modules/systemjs/dist/system.src.js',
 
@@ -80,7 +81,8 @@ module.exports = function(config) {
     // Proxied base paths for loading assets
     proxies: {
       // required for modules fetched by SystemJS
-      '/base/src/node_modules/': '/base/node_modules/'
+      '/base/src/node_modules/': '/base/node_modules/',
+      // '/base/node_modules/mapbox-gl/dist/': '../node_modules/mapbox-gl/dist/'
     },
 
     exclude: [],

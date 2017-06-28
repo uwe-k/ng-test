@@ -6,14 +6,14 @@ import { Map } from 'mapbox-gl';
   selector: 'cartr-app',
   templateUrl: './app.component.html',
 })
-export class AppComponent  { 
+export class AppComponent  {
     name = 'Cartr';
     map: Object;
     data: Object;
-    
+
     constructor(private mapService: MapService) { }
-    
-    
+
+
     ngOnInit(): void {
       this.mapService.getMap(64)
         .then(data => {
@@ -26,9 +26,9 @@ export class AppComponent  {
           });
 
           this.map = map;
-          return this.data = data
+          return this.data = data;
       });
       this.mapService.getGeoJson(64)
-        .then(map => {console.log(map); return this.map = map});
+        .then(map => { console.log(map); return this.map = map; });
   }
 }
