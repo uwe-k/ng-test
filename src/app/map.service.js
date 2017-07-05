@@ -19,19 +19,39 @@ var MapService = (function () {
         this.getUrl = 'http://www.cartr.dev/'; // URL to web api
         this.geojsonPath = 'maps/geojson/';
         this.showPath = 'maps/show/';
+        this.mapsPath = 'service/maps_info/';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        this.apiKey = 'aJ4FW2DcNCYvItyHErGu3fhR8qd9xUMB';
+        this.userKey = 'OVRTS2jZHUwAk3lE1qYCrmfMseNdp9Ic';
         MapboxGl.accessToken = 'pk.eyJ1IjoiZ3JhZmlrbGllc2NoZW4iLCJhIjoiTmhPalg0RSJ9.SsKEUr-0183Fncfy1V0aLA';
     }
     MapService.prototype.getMap = function (id) {
-        var url = "" + this.getUrl + this.showPath + id;
+        var url = "" + this.getUrl + this.showPath + id + "/" + this.userKey;
         // return Promise.resolve({});
         return this.http.get(url)
             .toPromise()
             .then(function (response) { console.log(response.json()); return response.json().data; })
             .catch(this.handleError);
     };
+    /**
+    *
+    */
+    MapService.prototype.getMaps = function () {
+        var url = "" + this.getUrl + this.mapsPath + this.apiKey;
+        var maps = [];
+        return this.http.get(url)
+            .toPromise()
+            .then(function (response) {
+            for (var index in response.json().html.maps) {
+                maps.push(response.json().html.maps[index]);
+            }
+            console.log('MANN EY', maps);
+            return maps;
+        })
+            .catch(this.handleError);
+    };
     MapService.prototype.getGeoJson = function (id) {
-        var url = "" + this.getUrl + this.geojsonPath + id;
+        var url = "" + this.getUrl + this.geojsonPath + id + "/" + this.userKey;
         // MapboxGl.accessToken = ('pk.eyJ1IjoiZ3JhZmlrbGllc2NoZW4iLCJhIjoiTmhPalg0RSJ9.SsKEUr-0183Fncfy1V0aLA');
         console.log('HUHU');
         // const url = `${this.heroesUrl}/${id}`;

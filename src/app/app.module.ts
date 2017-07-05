@@ -1,10 +1,14 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
+import { RouterModule }   from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { LeafletModule } from '@asymmetrik/angular2-leaflet';
 
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent }  from './app.component';
+import { MapComponent }  from './map.component';
 
 import { MapService } from './map.service';
 
@@ -13,9 +17,14 @@ import { MapService } from './map.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    JsonpModule
+    AppRoutingModule,
+    JsonpModule,
+    LeafletModule
   ],
-  declarations: [ AppComponent ],
+  declarations: [
+    AppComponent,
+    MapComponent
+  ],
   providers: [
     MapService,
   ],
