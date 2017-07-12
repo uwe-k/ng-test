@@ -5,10 +5,11 @@ import { MapService } from './map.service';
 import * as mapboxgl from 'mapbox-gl';
 import { Map } from 'mapbox-gl';
 import { GeoJSONSource } from 'mapbox-gl';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // from 'mapbox-gl';
 
 @Component({
-  selector: 'cartr-app',
+  selector: 'map-detail',
   templateUrl: './map.component.html',
 })
 

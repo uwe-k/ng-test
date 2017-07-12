@@ -6,17 +6,15 @@ import { ImgService } from './img.service';
 
 
 @Component({
-  selector: 'cartr-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'gallery',
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.css'],
   providers: [ ImgService ],
 })
 
 
-export class AppComponent  {
+export class GalleryComponent  {
     name = 'Cartr';
-    maps: any;
-    selectedMap: any;
     single_img: Object;
     img_collection: Object[] = [];
     collLength = 9;
@@ -24,7 +22,6 @@ export class AppComponent  {
 
     
     constructor(
-      private mapService: MapService,
       private imgService: ImgService,
       private router: Router
     ) { }
@@ -37,12 +34,6 @@ export class AppComponent  {
 
           // this.handleFeaturedImg(res);
           this.handleImgCollection(res);
-        });
-        
-        this.mapService.getMaps()
-            .then(data => {
-              console.log('MAPS INFO', data);
-              return this.maps = data;
         });
         // //////////////////
 
@@ -88,11 +79,4 @@ export class AppComponent  {
       };
     };
     // //////////////////
-  
-  onSelect(map: any): void {
-    
-    this.selectedMap = map;
-    console.log(map, this.selectedMap.entity_id);
-    this.router.navigate(['/map', this.selectedMap.entity_id]);
-  }
 }

@@ -31,14 +31,14 @@ var MapComponent = (function () {
         });
     }
     MapComponent.prototype.ngOnChanges = function () {
-        console.log('CHANGESSSSSSS');
+        console.log('OnChanges');
     };
     MapComponent.prototype.ngOnDestroy = function () {
-        console.log('DESTROY');
+        console.log('OnDestroy');
         // this.subParams.unsubscribe();
     };
     MapComponent.prototype.ngOnInit = function () {
-        console.log('HELLLLLLLOOOOOOOOOO');
+        console.log('OnInit');
     };
     MapComponent.prototype.initMap = function () {
         var _this = this;
@@ -62,27 +62,26 @@ var MapComponent = (function () {
                 console.log(layer);
                 for (var _i = 0, _a = mapData.features; _i < _a.length; _i++) {
                     var entry = _a[_i];
-                    entry.properties.icon = "rocket";
+                    entry.properties.icon = 'rocket';
                 }
-                _this.map.addSource("mapDataSrc", {
-                    "type": "geojson",
-                    "data": mapData
+                _this.map.addSource('mapDataSrc', {
+                    'type': 'geojson',
+                    'data': mapData
                 });
                 var lObj = {
-                    "id": "points",
-                    "type": "symbol",
-                    "source": "mapDataSrc",
-                    "layout": {
-                        "icon-image": "{icon}-15",
-                        "text-field": "{title}",
-                        "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-                        "text-offset": [0, 0.6],
-                        "text-anchor": "top"
+                    'id': 'points',
+                    'type': 'symbol',
+                    'source': 'mapDataSrc',
+                    'layout': {
+                        'icon-image': '{icon}-15',
+                        'text-field': '{title}',
+                        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                        'text-offset': [0, 0.6],
+                        'text-anchor': 'top'
                     }
                 };
                 console.log(lObj);
                 _this.map.addLayer(lObj);
-                //layer.addTo(this.map);
                 return _this.mapData = mapData;
             });
             return data;
@@ -93,7 +92,7 @@ var MapComponent = (function () {
 }());
 MapComponent = __decorate([
     core_1.Component({
-        selector: 'cartr-app',
+        selector: 'map-detail',
         templateUrl: './map.component.html',
     }),
     __metadata("design:paramtypes", [map_service_1.MapService, router_1.Router, router_2.ActivatedRoute])

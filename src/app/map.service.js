@@ -30,7 +30,7 @@ var MapService = (function () {
         // return Promise.resolve({});
         return this.http.get(url)
             .toPromise()
-            .then(function (response) { console.log(response.json()); return response.json().data; })
+            .then(function (response) { console.log('RESPONSE', response.json()); return response.json().data; })
             .catch(this.handleError);
     };
     /**
@@ -42,8 +42,11 @@ var MapService = (function () {
         return this.http.get(url)
             .toPromise()
             .then(function (response) {
-            for (var index in response.json().html.maps) {
-                maps.push(response.json().html.maps[index]);
+            var responseMaps = response.json().html.maps;
+            for (var index in responseMaps) {
+                if (responseMaps.hasOwnProperty(index)) {
+                    maps.push(response.json().html.maps[index]);
+                }
             }
             console.log('MANN EY', maps);
             return maps;

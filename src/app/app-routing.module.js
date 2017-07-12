@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var map_component_1 = require("./map.component");
+var gallery_component_1 = require("./gallery.component");
 var routes = [
     { path: '', redirectTo: '/', pathMatch: 'full' },
-    // { path: 'dashboard',  component: DashboardComponent },
+    { path: 'gallery', component: gallery_component_1.GalleryComponent },
     // { path: 'detail/:id', component: HeroDetailComponent },
     { path: 'map/:id', component: map_component_1.MapComponent }
 ];

@@ -30,7 +30,7 @@ export class MapService {
       // return Promise.resolve({});
       return this.http.get(url)
         .toPromise()
-        .then(response => {console.log(response.json()); return response.json().data as any; })
+        .then(response => { console.log('RESPONSE', response.json()); return response.json().data as any; })
         .catch(this.handleError);
     }
     /**
