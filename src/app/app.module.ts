@@ -4,11 +4,13 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { LeafletModule } from '@asymmetrik/angular2-leaflet';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent }  from './app.component';
 import { MapComponent }  from './map.component';
+import { GalleryComponent }  from './gallery.component';
 
 import { MapService } from './map.service';
 
@@ -19,11 +21,13 @@ import { MapService } from './map.service';
     HttpModule,
     AppRoutingModule,
     JsonpModule,
-    LeafletModule
+    LeafletModule,
+    NgbModule.forRoot(),
   ],
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    GalleryComponent,
   ],
   providers: [
     MapService,

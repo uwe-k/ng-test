@@ -10,9 +10,11 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var angular2_leaflet_1 = require("@asymmetrik/angular2-leaflet");
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
 var map_component_1 = require("./map.component");
+var gallery_component_1 = require("./gallery.component");
 var map_service_1 = require("./map.service");
 var AppModule = (function () {
     function AppModule() {
@@ -27,11 +29,13 @@ AppModule = __decorate([
             http_1.HttpModule,
             app_routing_module_1.AppRoutingModule,
             http_1.JsonpModule,
-            angular2_leaflet_1.LeafletModule
+            angular2_leaflet_1.LeafletModule,
+            ng_bootstrap_1.NgbModule.forRoot(),
         ],
         declarations: [
             app_component_1.AppComponent,
-            map_component_1.MapComponent
+            map_component_1.MapComponent,
+            gallery_component_1.GalleryComponent,
         ],
         providers: [
             map_service_1.MapService,
