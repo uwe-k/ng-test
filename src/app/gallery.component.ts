@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MapService } from './map.service';
 import { ImgService } from './img.service';
 
 

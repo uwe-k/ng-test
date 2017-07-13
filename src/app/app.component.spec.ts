@@ -1,8 +1,15 @@
-import { AppComponent } from './app.component';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
+import { AppComponent } from './app.component';
+
+import { MapService } from './map.service';
+
+
 
 describe('AppComponent', function () {
   let de: DebugElement;
@@ -11,7 +18,14 @@ describe('AppComponent', function () {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppComponent ]
+      declarations: [ AppComponent ],
+      providers: [
+        MapService ,
+      ],
+      imports: [
+        HttpModule,
+        RouterTestingModule,
+      ]
     })
     .compileComponents();
   }));
@@ -27,7 +41,7 @@ describe('AppComponent', function () {
   it('should have expected <h1> text', () => {
     fixture.detectChanges();
     const h1 = de.nativeElement;
-    expect(h1.innerText).toMatch(/angular/i,
-      '<h1> should say something about "Angular"');
+    expect(h1.innerText).toMatch(/cartr/i,
+      '<h1> should say something about "cartr"');
   });
 });
